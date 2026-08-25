@@ -299,11 +299,16 @@ function t(key) {
 }
 
 function detectLanguage() {
-  const saved = localStorage.getItem('wc-lang');
-  if (saved && translations[saved]) return saved;
-  const browser = navigator.language?.toLowerCase() || '';
-  if (browser.startsWith('ru')) return 'ru';
+  if (/^\/ru(\/|$)/.test(window.location.pathname)) return 'ru';
   return 'en';
+}
+
+function updateLangSwitcher() {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const isActive = btn.dataset.lang === currentLang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-current', isActive ? 'page' : 'false');
+  });
 }
 
 function applyTranslations() {
@@ -331,28 +336,22 @@ function applyTranslations() {
     el.setAttribute('aria-label', t(el.dataset.i18nAria));
   });
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === currentLang);
-    btn.setAttribute('aria-pressed', btn.dataset.lang === currentLang ? 'true' : 'false');
-  });
+  updateLangSwitcher();
+  document.documentElement.classList.remove('wc-i18n-pending');
+  document.documentElement.classList.add('wc-i18n-ready');
 
   window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: currentLang } }));
 }
 
-function setLanguage(lang) {
-  if (!translations[lang]) return;
-  currentLang = lang;
-  localStorage.setItem('wc-lang', lang);
-  applyTranslations();
-}
-
 function initI18n() {
   currentLang = detectLanguage();
-  applyTranslations();
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-  });
+  if (currentLang === 'ru') {
+    applyTranslations();
+  } else {
+    updateLangSwitcher();
+    document.documentElement.classList.remove('wc-i18n-pending');
+  }
 }
 
-window.i18n = { t, setLanguage, getLanguage: () => currentLang };
+window.i18n = { t, getLanguage: () => currentLang };

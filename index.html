@@ -3,12 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      var ru = /^\/ru(\/|$)/.test(location.pathname);
+      document.documentElement.lang = ru ? 'ru' : 'en';
+      if (ru) document.documentElement.classList.add('wc-i18n-pending');
+    })();
+  </script>
+  <style>html.wc-i18n-pending body { visibility: hidden; }</style>
   <title>West Coast Immigration Law | Premium California Immigration Attorneys</title>
   <meta name="description" content="Elite immigration attorneys serving California and nationwide. Visas, green cards, citizenship, asylum — trusted by 5,000+ families since 2008.">
+  <link rel="alternate" hreflang="en" href="/">
+  <link rel="alternate" hreflang="ru" href="/ru/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <!-- Navigation -->
@@ -26,8 +36,8 @@
         <li><a href="#testimonials" data-i18n="nav.results">Results</a></li>
         <li class="lang-switch-wrap">
           <div class="lang-switch" id="langSwitch">
-            <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+            <a href="/" class="lang-btn" data-lang="en">EN</a>
+            <a href="/ru/" class="lang-btn" data-lang="ru">RU</a>
           </div>
         </li>
         <li><a href="#contact" class="nav-cta" data-i18n="nav.cta">Free Consultation</a></li>
@@ -495,7 +505,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js"></script>
-  <script src="script.js"></script>
+  <script src="/i18n.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
