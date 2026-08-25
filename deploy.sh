@@ -4,7 +4,7 @@ set -euo pipefail
 # Deploy West Coast Immigration landing to GitHub + Coolify
 # Required env vars:
 #   GITHUB_TOKEN      - GitHub PAT with repo scope
-#   COOLIFY_URL       - e.g. https://app.coolify.io or your self-hosted URL
+#   COOLIFY_URL       - e.g. https://coolify.probcapital.com
 #   COOLIFY_TOKEN     - Coolify API bearer token
 # Optional:
 #   GITHUB_REPO       - repo name (default: west-coast-immigration-landing)
