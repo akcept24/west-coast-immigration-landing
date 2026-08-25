@@ -53,6 +53,7 @@
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-fx" aria-hidden="true">
+      <div class="retro-grid" aria-hidden="true"></div>
       <div class="aurora aurora-1"></div>
       <div class="aurora aurora-2"></div>
       <div class="aurora aurora-3"></div>
@@ -68,17 +69,23 @@
       <div class="hero-dot-grid"></div>
     </div>
     <div class="hero-content container">
-      <div class="hero-badge reveal" data-i18n="hero.badge">California's Premier Immigration Firm</div>
-      <h1 class="hero-title reveal" data-i18n-html="hero.title">
-        Your American Dream<br>
-        <span class="gold-text">Starts Here</span>
+      <a href="#about" class="hero-pill reveal">
+        <span class="hero-pill-tag" data-i18n="hero.pillTag">Premium</span>
+        <span data-i18n="hero.badge">California's Premier Immigration Firm</span>
+        <span class="hero-pill-arrow" aria-hidden="true">→</span>
+      </a>
+      <h1 class="hero-title reveal">
+        <span class="hero-title-main" data-i18n="hero.titleLine1">Your American Dream</span>
+        <span class="hero-title-accent gold-text" data-i18n="hero.titleLine2">Starts Here</span>
       </h1>
       <p class="hero-subtitle reveal" data-i18n="hero.subtitle">
         Award-winning immigration attorneys with offices in Los Angeles, San Francisco, and San Diego. 
         Over 5,000 successful cases — 98% approval rate.
       </p>
       <div class="hero-actions reveal">
-        <a href="#contact" class="btn btn-primary" data-i18n="hero.btnPrimary">Schedule Free Consultation</a>
+        <div class="cta-spin">
+          <a href="#contact" class="btn btn-primary" data-i18n="hero.btnPrimary">Schedule Free Consultation</a>
+        </div>
         <a href="#services" class="btn btn-outline" data-i18n="hero.btnSecondary">Explore Services</a>
       </div>
       <div class="hero-stats reveal">
@@ -95,6 +102,28 @@
         <div class="stat">
           <span class="stat-number" data-target="17">0</span><span class="stat-suffix">+</span>
           <span class="stat-label" data-i18n="hero.statYears">Years Experience</span>
+        </div>
+      </div>
+      <div class="hero-mock reveal">
+        <div class="hero-mock-header">
+          <div class="hero-mock-dots"><span></span><span></span><span></span></div>
+          <div class="hero-mock-search">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <span data-i18n="hero.mockSearch">Search case status, documents, appointments…</span>
+          </div>
+        </div>
+        <div class="hero-mock-body">
+          <div class="hero-mock-line cmd"><span>$</span> <span data-i18n="hero.mockCmd">wc-immigration status --case EB-1-2026</span></div>
+          <div class="hero-mock-log">
+            <p data-i18n="hero.mockLine1">✔ Case strategy approved</p>
+            <p data-i18n="hero.mockLine2">✔ Documents submitted to USCIS</p>
+            <p data-i18n="hero.mockLine3">✔ RFE response filed</p>
+            <p data-i18n="hero.mockLine4">✔ Interview preparation complete</p>
+          </div>
+          <div class="hero-mock-ready">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero.mockReady">Green Card approved — congratulations!</span>
+          </div>
         </div>
       </div>
     </div>

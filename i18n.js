@@ -15,6 +15,9 @@ const translations = {
     },
     hero: {
       badge: "California's Premier Immigration Firm",
+      pillTag: 'Premium',
+      titleLine1: 'Your American Dream',
+      titleLine2: 'Starts Here',
       title: 'Your American Dream<br><span class="gold-text">Starts Here</span>',
       subtitle: 'Award-winning immigration attorneys with offices in Los Angeles, San Francisco, and San Diego. Over 5,000 successful cases — 98% approval rate.',
       btnPrimary: 'Schedule Free Consultation',
@@ -22,7 +25,14 @@ const translations = {
       statCases: 'Cases Won',
       statSuccess: 'Success Rate',
       statYears: 'Years Experience',
-      scroll: 'Scroll'
+      scroll: 'Scroll',
+      mockSearch: 'Search case status, documents, appointments…',
+      mockCmd: 'wc-immigration status --case EB-1-2026',
+      mockLine1: '✔ Case strategy approved',
+      mockLine2: '✔ Documents submitted to USCIS',
+      mockLine3: '✔ RFE response filed',
+      mockLine4: '✔ Interview preparation complete',
+      mockReady: 'Green Card approved — congratulations!'
     },
     trust: {
       label: 'Recognized by'
@@ -155,6 +165,9 @@ const translations = {
     },
     hero: {
       badge: 'Ведущая иммиграционная фирма Калифорнии',
+      pillTag: 'Премиум',
+      titleLine1: 'Ваша американская мечта',
+      titleLine2: 'начинается здесь',
       title: 'Ваша американская мечта<br><span class="gold-text">начинается здесь</span>',
       subtitle: 'Отмеченные наградами иммиграционные адвокаты с офисами в Лос-Анджелесе, Сан-Франциско и San Diego. Более 5000 выигранных дел — 98% одобрений.',
       btnPrimary: 'Записаться на консультацию',
@@ -162,7 +175,14 @@ const translations = {
       statCases: 'Выигранных дел',
       statSuccess: 'Успешность',
       statYears: 'Лет опыта',
-      scroll: 'Листайте'
+      scroll: 'Листайте',
+      mockSearch: 'Поиск статуса дела, документов, встреч…',
+      mockCmd: 'wc-immigration status --case EB-1-2026',
+      mockLine1: '✔ Стратегия дела утверждена',
+      mockLine2: '✔ Документы поданы в USCIS',
+      mockLine3: '✔ Ответ на RFE отправлен',
+      mockLine4: '✔ Подготовка к интервью завершена',
+      mockReady: 'Green Card одобрен — поздравляем!'
     },
     trust: {
       label: 'Признание'
