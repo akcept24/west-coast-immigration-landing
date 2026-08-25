@@ -1,6 +1,7 @@
 // West Coast Immigration Law — Interactions
 
 document.addEventListener('DOMContentLoaded', () => {
+  initI18n();
   initHeader();
   initMobileNav();
   initRevealAnimations();
@@ -132,12 +133,20 @@ function initTestimonialSlider() {
     const dot = document.createElement('button');
     dot.classList.add('testimonial-dot');
     if (i === 0) dot.classList.add('active');
-    dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+    dot.setAttribute('aria-label', `${window.i18n.t('testimonials.goto')} ${i + 1}`);
     dot.addEventListener('click', () => goTo(i));
     dotsContainer.appendChild(dot);
   });
 
   const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+
+  function updateDotLabels() {
+    dots.forEach((dot, i) => {
+      dot.setAttribute('aria-label', `${window.i18n.t('testimonials.goto')} ${i + 1}`);
+    });
+  }
+
+  window.addEventListener('languageChanged', updateDotLabels);
 
   function goTo(index) {
     current = ((index % cards.length) + cards.length) % cards.length;
@@ -189,18 +198,18 @@ function initContactForm() {
     e.preventDefault();
 
     const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn.textContent;
+    const submitKey = 'contact.submit';
 
-    btn.textContent = 'Sending...';
+    btn.textContent = window.i18n.t('contact.sending');
     btn.disabled = true;
 
     setTimeout(() => {
-      btn.textContent = '✓ Request Sent!';
+      btn.textContent = window.i18n.t('contact.sent');
       btn.style.background = 'linear-gradient(135deg, #2d8a4e, #1e6b3a)';
 
       setTimeout(() => {
         form.reset();
-        btn.textContent = originalText;
+        btn.textContent = window.i18n.t(submitKey);
         btn.style.background = '';
         btn.disabled = false;
       }, 3000);
