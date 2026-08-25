@@ -321,25 +321,26 @@ function applyTranslations() {
   if (metaDesc) metaDesc.setAttribute('content', desc);
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    el.textContent = t(el.dataset.i18n);
+    const key = el.getAttribute('data-i18n');
+    if (key) el.textContent = t(key);
   });
 
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    el.innerHTML = t(el.dataset.i18nHtml);
+    const key = el.getAttribute('data-i18n-html');
+    if (key) el.innerHTML = t(key);
   });
 
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    el.placeholder = t(el.dataset.i18nPlaceholder);
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (key) el.placeholder = t(key);
   });
 
   document.querySelectorAll('[data-i18n-aria]').forEach(el => {
-    el.setAttribute('aria-label', t(el.dataset.i18nAria));
+    const key = el.getAttribute('data-i18n-aria');
+    if (key) el.setAttribute('aria-label', t(key));
   });
 
   updateLangSwitcher();
-  document.documentElement.classList.remove('wc-i18n-pending');
-  document.documentElement.classList.add('wc-i18n-ready');
-
   window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: currentLang } }));
 }
 
@@ -350,8 +351,21 @@ function initI18n() {
     applyTranslations();
   } else {
     updateLangSwitcher();
-    document.documentElement.classList.remove('wc-i18n-pending');
+  }
+}
+
+function bootI18n() {
+  try {
+    initI18n();
+  } catch (err) {
+    console.error('i18n failed:', err);
   }
 }
 
 window.i18n = { t, getLanguage: () => currentLang };
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootI18n);
+} else {
+  bootI18n();
+}

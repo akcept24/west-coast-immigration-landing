@@ -1,7 +1,6 @@
 // West Coast Immigration Law — Interactions
 
 document.addEventListener('DOMContentLoaded', () => {
-  initI18n();
   initHeader();
   initMobileNav();
   initRevealAnimations();
