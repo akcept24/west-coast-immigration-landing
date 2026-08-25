@@ -568,12 +568,13 @@ ul {
   max-width: 900px;
   margin: 3rem auto 0;
   border-radius: 16px 16px 0 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(5, 8, 18, 0.85);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #0a0e1a;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   overflow: hidden;
   text-align: left;
+  position: relative;
+  z-index: 3;
 }
 
 .hero-mock-header {
@@ -581,20 +582,15 @@ ul {
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.hero-mock-dots {
-  display: flex;
-  gap: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0f1629;
 }
 
 .hero-mock-dots span {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .hero-mock-search {
@@ -602,41 +598,55 @@ ul {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(0, 0, 0, 0.4);
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #050810;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-mock-search svg {
+  color: var(--gold-400);
+  flex-shrink: 0;
 }
 
 .hero-mock-body {
   padding: 1.25rem 1.5rem 1.5rem;
   font-family: ui-monospace, 'Cascadia Code', monospace;
-  font-size: 0.8125rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.92);
+  background: #0a0e1a;
 }
 
 .hero-mock-line.cmd span:first-child {
-  color: var(--gold-500);
+  color: var(--gold-400);
   margin-right: 0.35rem;
+  font-weight: 700;
 }
 
 .hero-mock-line.cmd span:last-child {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .hero-mock-log {
   margin: 1rem 0;
 }
 
+.hero-mock-log p {
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 0.25rem;
+}
+
 .hero-mock-ready {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--gold-400);
-  font-weight: 600;
+  color: #f5d78e;
+  font-weight: 700;
+  font-size: 0.9375rem;
 }
 
 .pulse-dot {
@@ -656,7 +666,7 @@ ul {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 8rem 2rem 4rem;
+  padding: 7rem 2rem 2rem;
 }
 
 .hero-title {
@@ -680,8 +690,8 @@ ul {
 
 .hero-subtitle {
   font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 300;
-  color: var(--text-light);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
   max-width: 640px;
   margin: 0 auto 2.5rem;
   line-height: 1.7;
@@ -701,13 +711,12 @@ ul {
   justify-content: center;
   gap: 2.5rem;
   padding: 2rem 3rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0f1629;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 24px;
-  backdrop-filter: blur(16px) saturate(150%);
   max-width: 700px;
   margin: 0 auto;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 20px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
 .stat {
@@ -731,10 +740,10 @@ ul {
 .stat-label {
   display: block;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.85);
   margin-top: 0.25rem;
 }
 
@@ -792,21 +801,14 @@ ul {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.trust-logos {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .trust-logos span {
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.82);
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
